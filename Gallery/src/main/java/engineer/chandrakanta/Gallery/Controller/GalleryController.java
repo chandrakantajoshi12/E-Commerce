@@ -27,4 +27,6 @@ public class GalleryController {
         model.addAttribute("womenWears",womenWears);
         return  "women";
     }
+//    @GetMapping("/gallery")
+//    public  String
 }
