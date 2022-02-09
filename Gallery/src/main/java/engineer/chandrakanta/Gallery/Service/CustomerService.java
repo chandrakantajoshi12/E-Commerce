@@ -29,6 +29,10 @@ public class CustomerService {
 
         return customerRepository.findAll();
     }
+
+    public Customer updateCustomer(Customer customer) {
+        return  customerRepository.save(customer);
+    }
 //    public  Customer deleteByUserName(String userName){
 //        return customerRepository.deleteById(userName);
 //    }

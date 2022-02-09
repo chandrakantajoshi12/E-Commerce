@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,10 +47,7 @@ public class CustomerController {
         return "login";
     }
 
-    @GetMapping("/gallery")
-    public  String galleryMenu(){
-        return  "gallery";
-    }
+
 
     @PostMapping("/login")
     public String registration(HttpServletRequest request) {
@@ -91,5 +89,23 @@ public class CustomerController {
         return  "customerTable";
      }
 
+
+     @GetMapping("/updateCustomer")
+     public String updateCustomer(Model model){
+        model.addAttribute("message","Profile Updated");
+        return "updateCustomer";
+     }
+
+     @PutMapping("/updateCustomer")
+      public  String  updateCustomer(HttpServletRequest request , Model model){
+      String name = request.getParameter("name");
+      String address = request.getParameter("address");
+      String emailId = request.getParameter("emailId");
+      String password = request.getParameter("password");
+      Customer customer = new Customer(name,address,emailId,password);
+      customerService.updateCustomer(customer);
+      model.addAttribute("message","Profile Updated");
+      return "updateCustomer";
+     }
 }
 
