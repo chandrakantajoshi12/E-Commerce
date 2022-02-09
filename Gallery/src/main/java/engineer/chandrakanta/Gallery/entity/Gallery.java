@@ -1,7 +1,10 @@
 package engineer.chandrakanta.Gallery.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Gallery {
@@ -11,6 +14,17 @@ public class Gallery {
     private String name;
     private  Double cost;
     private  String photo;
+    @JsonIgnore
+    @ManyToOne
+    private  Customer customer;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public Double getCost() {
         return cost;

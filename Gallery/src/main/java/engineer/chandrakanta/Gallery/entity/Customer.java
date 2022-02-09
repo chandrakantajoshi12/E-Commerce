@@ -1,10 +1,8 @@
 package engineer.chandrakanta.Gallery.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -15,7 +13,14 @@ public class Customer {
     private  String emailId;
     @Column(unique = true)
     private String password;
+     @OneToMany(mappedBy ="customer")
+     private List<WomenWear> womenWear;
 
+     @OneToMany(mappedBy = "customer")
+     private List<Gallery> gallery;
+
+    @OneToMany(mappedBy ="customer")
+    private List<MenWear> menWear;
     public Customer() {
 
     }

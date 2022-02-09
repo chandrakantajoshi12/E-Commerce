@@ -1,7 +1,10 @@
 package engineer.chandrakanta.Gallery.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class MenWear {
@@ -12,6 +15,17 @@ public class MenWear {
     private  Double cost;
     private  String snapShot;
     private String dressType;
+    @JsonIgnore
+    @ManyToOne
+    private  Customer customer;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public MenWear(Long id, String brand, String dressName, Double cost, String snapShot) {
     }

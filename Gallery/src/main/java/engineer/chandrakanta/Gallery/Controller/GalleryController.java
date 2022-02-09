@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -21,9 +22,9 @@ public class GalleryController {
 
 
     @GetMapping("/women")
-    public  String womenWear(Model model){
+    public  String women(Model model){
         List<WomenWear> womenWears= womenWearService.showDetails();
-//        List<Gallery> galleries= galleryService.showsGallery();
+        model.addAttribute("womenWears",womenWears);
         return  "women";
     }
 }
