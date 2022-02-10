@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Gallery</title>
@@ -11,7 +11,7 @@
 <body style="background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);">
 <div class="container">
     <div class="row">
-        <h3>List Of Men Wear Products</h3>
+        <h3>List Of Women Wear Products</h3>
     </div>
     <table class="table table-striped table-bordered">
         <thead class="table-dark">
@@ -21,17 +21,23 @@
             <th scope="col">Cost</th>
             <th scope="col">Dress Name</th>
             <th scope="col">Image</th>
-<!--            <th scope="col">Dress Type</th>-->
+            <th scope="col">Action</th>
+            <!--            <th scope="col">Dress Type</th>-->
         </tr>
         </thead>
         <tbody>
-        <tr th:each="menWear: ${menWears}">
-            <td th:text="${menWear.id}"></td>
-            <td th:text="${menWear.brand}"></td>
-            <td th:text="${menWear.cost}"></td>
-            <td th:text="${menWear.dressName}"></td>
-            <td th:text="${menWear.snapShot}"></td>
-<!--            <td th:text= "${menWear.Type}"></td>-->
+        <tr th:each="womenWear: ${womenWears}">
+            <td th:text="${womenWear.id}"></td>
+            <td th:text="${womenWear.brand}"></td>
+            <td th:text="${womenWear.cost}"></td>
+            <td th:text="${womenWear.dressName}"></td>
+            <td th:text="${womenWear.snapShot}"></td>
+            <!--            <td th:text= "${menWear.Type}"></td>-->
+            <td>
+                <a class="btn btn-outline-primary" type="submit" >Update</a>
+                <a class="btn btn-outline-primary" type="submit">Delete</a>
+<!--                th:href="@{/womenWear/{id} id=${womenWear.id})}"-->
+            </td>
         </tr>
         </tbody>
     </table>

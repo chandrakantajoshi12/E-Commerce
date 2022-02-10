@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -104,8 +101,10 @@ public class CustomerController {
       String password = request.getParameter("password");
       Customer customer = new Customer(name,address,emailId,password);
       customerService.updateCustomer(customer);
-      model.addAttribute("message","Profile Updated");
+//      model.addAttribute("message","Profile Updated");
       return "updateCustomer";
      }
+
+
 }
 

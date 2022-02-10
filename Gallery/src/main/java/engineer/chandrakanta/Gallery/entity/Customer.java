@@ -19,6 +19,12 @@ public class Customer {
      @OneToMany(mappedBy = "customer")
      private List<Gallery> gallery;
 
+     @OneToMany(mappedBy = "customer")
+     private  List<Cart> cart;
+
+     @OneToMany(mappedBy = "customer")
+     private  List<Order> order;
+
     @OneToMany(mappedBy ="customer")
     private List<MenWear> menWear;
     public Customer() {

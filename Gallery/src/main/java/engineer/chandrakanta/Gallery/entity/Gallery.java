@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Gallery {
@@ -17,6 +19,12 @@ public class Gallery {
     @JsonIgnore
     @ManyToOne
     private  Customer customer;
+
+    @OneToMany(mappedBy = "gallery")
+    private List<Cart> cart;
+
+    @OneToMany(mappedBy = "gallery")
+    private  List<Order>  order;
 
     public Customer getCustomer() {
         return customer;

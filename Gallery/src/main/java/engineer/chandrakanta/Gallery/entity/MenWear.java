@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class MenWear {
@@ -18,6 +20,9 @@ public class MenWear {
     @JsonIgnore
     @ManyToOne
     private  Customer customer;
+
+     @OneToMany(mappedBy ="menWear")
+     private List<Cart> cart ;
 
     public Customer getCustomer() {
         return customer;

@@ -18,4 +18,8 @@ public class GalleryService {
     public List<Gallery> showsGallery() {
         return galleryRepository.findAll();
     }
+
+    public Gallery getById(Long id) {
+        return  galleryRepository.getById(id);
+    }
 }

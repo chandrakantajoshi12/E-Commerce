@@ -91,5 +91,10 @@ public class addContainController {
         model .addAttribute("galleries",galleries);
         return "galleryTable";
    }
-
+   @GetMapping("/womenWearTable")
+    public  String womenTable(Model model){
+        List<WomenWear> womenWears = womenWearService.showDetails();
+        model.addAttribute("womenWears",womenWears);
+        return "womenWearTable";
+   }
 }

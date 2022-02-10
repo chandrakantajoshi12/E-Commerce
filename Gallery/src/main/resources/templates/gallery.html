@@ -27,10 +27,10 @@
                             <a class="nav-link" href="/men">Men</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/women">Women</a>
+                            <a class="nav-link " href="/women">Women</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/#">Gallery</a>
+                            <a class="nav-link active" href="/#">Gallery</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/logout">Logout</a>
@@ -50,8 +50,9 @@
                     <h5 class="card-title" th:text="${gallery.name}">Women Wear</h5>
                     <div class="brand">Brand<b th:text="${gallery.brand}"></b></div>
                     <div clas="cost">₹<b th:text="${gallery.cost}"></b></div>
-
-                    <a href="#" class="btn btn-primary">Buy</a>
+<!--                    "@{/{userName}/movie/{id} (userName=${userName},id=${movie.movieId})}"-->
+                    <a class="btn btn-primary" th:href="@{/buyNow/{id} (id=${gallery.id})}">Buy</a>
+<!--                    <a href="#" class="btn btn-primary">Add To Cart</a>-->
                 </div>
             </div>
         </div>

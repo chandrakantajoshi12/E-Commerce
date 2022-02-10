@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <!--Bootstrap Link-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--font awesome Link-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
+<body style="background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);">
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/"><span class="fa fa-home"> Home</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/womenWear}">
+                <span class="fa"> Women Wear </span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/menWear}">
+                <span class="fa"> Men Wear </span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/myOrder}"><span class="fa"> My Orders </span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" th:href="@{/cart}"><span class="fa fa-shopping-cart"> My Cart </span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" th:text="${username}"></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout"><span class="fas fa-sign-out-alt"> Logout</span></a>
+        </li>
+    </ul>
+</nav>
+<div class="product-container">
+    <div class="product" th:each="cart: ${myCart}">
+        <div class="img-box">
+            <img class="imgb" th:src="@{${cart.gallery.photo}}" alt="">
+        </div>
+        <div class="info">
+            <h4>Brand <span th:text="${cart.gallery.brand}"/></h4>
+            <div class="price">₹<b th:text="${cart.gallery.cost}"></b></div>
+        </div>
+        <div class="info">
+            <a th:href="@{/buy/{id} (id=${cart.gallery.id})}" class="btn btn-success">Buy</a>
+            <a th:href="@{/myCart/{cartId} (cartId=${cart.id})}" class="btn btn-success">Remove from Cart</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
