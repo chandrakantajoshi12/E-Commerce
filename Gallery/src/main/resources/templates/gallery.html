@@ -51,7 +51,7 @@
                     <div class="brand">Brand<b th:text="${gallery.brand}"></b></div>
                     <div clas="cost">₹<b th:text="${gallery.cost}"></b></div>
 <!--                    "@{/{userName}/movie/{id} (userName=${userName},id=${movie.movieId})}"-->
-                    <a class="btn btn-primary" th:href="@{/buyNow/{id} (id=${gallery.id})}">Buy</a>
+                    <a class="btn btn-primary" th:href="@{/{userName}/buyNow/{id} (id=${gallery.id})}">Buy</a>
 <!--                    <a href="#" class="btn btn-primary">Add To Cart</a>-->
                 </div>
             </div>

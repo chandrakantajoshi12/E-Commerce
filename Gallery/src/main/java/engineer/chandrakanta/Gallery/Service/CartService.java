@@ -15,8 +15,10 @@ public class CartService {
   public Cart addToCart(Cart cart){
       return cartRepository.save(cart);
   }
- public List<Cart> myCart(String userName){
-  return cartRepository.findByCustomerUserName(userName);
+
+ public List<Cart> myCart(String username){
+
+      return cartRepository.findByCustomerUsername(username);
   }
    public  void remove(Long id){
       cartRepository.deleteById(id);

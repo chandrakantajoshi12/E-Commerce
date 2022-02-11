@@ -16,13 +16,13 @@ public class Cart{
      @ManyToOne
      private  Customer customer;
 
-     @JsonIgnore
-     @ManyToOne
-     private MenWear menWear;
+    public Customer getCustomer() {
+        return customer;
+    }
 
-     @JsonIgnore
-     @ManyToOne
-     private  WomenWear womenWear;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     @JsonIgnore
     @ManyToOne
@@ -37,33 +37,10 @@ public class Cart{
     }
 
 
-//     @JsonIgnore
-
-    public WomenWear getWomenWear() {
-        return womenWear;
-    }
-
-    public void setWomenWear(WomenWear womenWear) {
-        this.womenWear = womenWear;
-    }
 
 
 
-    public MenWear getMenWear() {
-        return menWear;
-    }
 
-    public void setMenWear(MenWear menWear) {
-        this.menWear = menWear;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 
     public  Cart(){
 

@@ -7,54 +7,64 @@ import java.util.List;
 @Entity
 public class Customer {
     @Id
-    private String userName;
+    private String username;
     private  String name;
     private  String address;
     private  String emailId;
+    private  String role;
     @Column(unique = true)
     private String password;
-     @OneToMany(mappedBy ="customer")
-     private List<WomenWear> womenWear;
+//     @OneToMany(mappedBy ="customer")
+//     private List<Dress> dress;
+//
+//     @OneToMany(mappedBy = "customer")
+//     private List<Gallery> gallery;
 
-     @OneToMany(mappedBy = "customer")
-     private List<Gallery> gallery;
+    public Customer(String username, String name, String address, String emailId, String password, String role) {
+     this.username=username;
+     this.name=name;
+     this.address=address;
+     this.emailId=emailId;
+     this.password=password;
+     this.role=role;
 
-     @OneToMany(mappedBy = "customer")
-     private  List<Cart> cart;
+     }
 
-     @OneToMany(mappedBy = "customer")
-     private  List<Order> order;
-
-    @OneToMany(mappedBy ="customer")
-    private List<MenWear> menWear;
-    public Customer() {
-
-    }
-
-
-
-
-    public Customer(String userName, String name, String address, String emailId, String password) {
-        this.userName = userName;
-        this.name = name;
-        this.address = address;
-        this.emailId = emailId;
-        this.password = password;
+    public Customer(String username, String name, String address, String password, String role_user) {
     }
 
     public Customer(String name, String address, String emailId, String password) {
-        this.name= name;
-        this.address= address;
-        this.emailId=emailId;
-        this.password=password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+//
+//    @OneToMany(mappedBy = "customer")
+//     private  List<Cart> cart;
+//
+//     @OneToMany(mappedBy = "customer")
+//     private  List<Order> order;
+
+    @OneToMany(mappedBy = "customer")
+    private  List<Dress> dress;
+
+  public Customer(){}
+
+
+
+
+
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     public void setUsername(String username) {
-        this.userName = username;
+        this.username = username;
     }
 
     public String getName() {

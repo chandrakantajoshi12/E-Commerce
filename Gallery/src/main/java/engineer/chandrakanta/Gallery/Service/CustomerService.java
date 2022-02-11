@@ -16,14 +16,14 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-    public boolean existsByUsername(String userName) {
+    public boolean existsByUsername(String username) {
 
-        return   customerRepository.existsById(userName);
+        return   customerRepository.existsById(username);
     }
 
-    public Customer findByUsername(String userName) {
+    public Customer findByUsername(String username) {
 
-        return  customerRepository.getById(userName);
+        return  customerRepository.getById(username);
     }
     public List<Customer> showsDetails(){
 
@@ -33,6 +33,10 @@ public class CustomerService {
     public Customer updateCustomer(Customer customer) {
         return  customerRepository.save(customer);
     }
+
+//    public  Customer getByUserName( String username){
+//        return  customerRepository.getById();
+//    }
 //    public  Customer deleteByUserName(String userName){
 //        return customerRepository.deleteById(userName);
 //    }

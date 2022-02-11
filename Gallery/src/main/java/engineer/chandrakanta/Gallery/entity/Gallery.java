@@ -16,23 +16,23 @@ public class Gallery {
     private String name;
     private  Double cost;
     private  String photo;
-    @JsonIgnore
-    @ManyToOne
-    private  Customer customer;
-
-    @OneToMany(mappedBy = "gallery")
-    private List<Cart> cart;
-
-    @OneToMany(mappedBy = "gallery")
-    private  List<Order>  order;
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+//    @JsonIgnore
+//    @ManyToOne
+//    private  Customer customer;
+//
+//    @OneToMany(mappedBy = "gallery")
+//    private List<Cart> cart;
+//
+//    @OneToMany(mappedBy = "gallery")
+//    private  List<Order>  order;
+//
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
 
     public Double getCost() {
         return cost;

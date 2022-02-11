@@ -46,26 +46,36 @@ public class CustomerController {
 
 
 
-    @PostMapping("/login")
-    public String registration(HttpServletRequest request) {
-        String userName = request.getParameter("userName");
+    @PostMapping("/register")
+    public String registration(HttpServletRequest request , Model model) {
+        String username = request.getParameter("username");
         String name = request.getParameter("name");
         String address = request.getParameter("address");
         String emailId = request.getParameter("emailId");
         String password = request.getParameter("password");
-        Customer customer = new Customer(userName, name, address, emailId, password);
-        customerService.createCustomer(customer);
-        return "login";
+        Customer customer;
+        if(username.equals("admin")) {
+          customer = new Customer(username, name, address, emailId, password, "ROLE_ADMIN");
+        } else{
+             customer= new Customer(username,name,address,emailId,password,"ROLE_USER");
+        }
+        if(!customerService.existsByUsername(username)) {
+            customerService.createCustomer(customer);
+        } else{
+            model.addAttribute("message","Choose Correct Username");
+        }
+
+        return "redirect:/login";
 
     }
 
-    @PostMapping("/main")
+    @PostMapping("/login")
     public String main(HttpServletRequest request, Model model) {
-        String userName = request.getParameter("userName");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
         Customer customer;
-        if (customerService.existsByUsername(userName)) {
-            customer = customerService.findByUsername(userName);
+        if (customerService.existsByUsername(username)) {
+            customer = customerService.findByUsername(username);
             if (password.equals(customer.getPassword())) {
                 model.addAttribute("message", "Login Successfully");
             } else {
@@ -77,7 +87,7 @@ public class CustomerController {
             return "login";
         }
 
-        return "main";
+        return "redirect:/main";
     }
      @GetMapping("/customerTable")
     public  String customerTable(Model model){
@@ -99,9 +109,8 @@ public class CustomerController {
       String address = request.getParameter("address");
       String emailId = request.getParameter("emailId");
       String password = request.getParameter("password");
-      Customer customer = new Customer(name,address,emailId,password);
+      Customer customer = new Customer  (name,address,emailId,password);
       customerService.updateCustomer(customer);
-//      model.addAttribute("message","Profile Updated");
       return "updateCustomer";
      }
 
