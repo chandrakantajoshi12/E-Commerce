@@ -24,7 +24,7 @@
                             <a class="nav-link active" href="#" th:text="${userName}"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/men">Men</a>
+                            <a class="nav-link" th:href="@{/menWear}">Men</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="/#">Women</a>
@@ -32,7 +32,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/gallery">Gallery</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" >
                             <a class="nav-link" href="/logout">Logout</a>
                         </li>
                     </ul>
@@ -43,15 +43,15 @@
 </nav>
 <div class="product" style="display:flex;flex-wrap:wrap; overflow:hidden;">
 <div class="row" style="margin:10px;">
-    <div class="col-md-3 mr-4" style="margin:100px;"  th:each="womenWear:${womenWears} ">
+    <div class="col-md-3 mr-4" style="margin:100px;"  th:each="dress:${womenWears} ">
         <div class="cards"  style="margin-top:10px;width:300px;height:500px;background:white ;">
-            <img th:src="@{${womenWear.snapShot}}" style="width:300px;height:300px ;" alt="">
+            <img th:src="@{${dress.snapShot}}" style="width:300px;height:300px ;" alt="">
             <div class="card-body">
-                <h5 class="card-title" th:text="${womenWear.dressName}">Women Wear</h5>
-                <div class="brand">Brand<b th:text="${womenWear.brand}"></b></div>
-                <div clas="cost">₹<b th:text="${womenWear.cost}"></b></div>
+                <h5 class="card-title" th:text="${dress.dressName}">Women Wear</h5>
+                <div class="brand">Brand<b th:text="${dress.brand}"></b></div>
+                <div clas="cost">₹<b th:text="${dress.cost}"></b></div>
 
-                <a class="btn btn-primary"  >Buy</a>
+                 <a class="btn btn-primary" th:href="@{/buyDress/{id}  (id=${dress.id})}">Buy</a>
             </div>
         </div>
     </div>

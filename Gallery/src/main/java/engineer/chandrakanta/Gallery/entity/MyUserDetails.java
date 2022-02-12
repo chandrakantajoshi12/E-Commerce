@@ -8,9 +8,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 public class MyUserDetails implements UserDetails {
-    private  String username;
-    private  String  password;
-    private  String role;
+    private  final String username;
+    private  final String  password;
+    private  final String role;
 
     public  MyUserDetails(Customer user){
         this.username=  user .getUsername();

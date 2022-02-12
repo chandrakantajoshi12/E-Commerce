@@ -14,11 +14,14 @@ public class Customer {
     private  String role;
     @Column(unique = true)
     private String password;
-//     @OneToMany(mappedBy ="customer")
-//     private List<Dress> dress;
-//
-//     @OneToMany(mappedBy = "customer")
-//     private List<Gallery> gallery;
+
+
+    @OneToMany(mappedBy = "customer")
+    private  List<Order> order;
+
+    @OneToMany(mappedBy = "customer")
+    private  List<Dress> dress;
+
 
     public Customer(String username, String name, String address, String emailId, String password, String role) {
      this.username=username;
@@ -36,6 +39,22 @@ public class Customer {
     public Customer(String name, String address, String emailId, String password) {
     }
 
+    public List<Order> getOrder() {
+        return order;
+    }
+
+    public void setOrder(List<Order> order) {
+        this.order = order;
+    }
+
+    public List<Dress> getDress() {
+        return dress;
+    }
+
+    public void setDress(List<Dress> dress) {
+        this.dress = dress;
+    }
+
     public String getRole() {
         return role;
     }
@@ -46,12 +65,6 @@ public class Customer {
 //
 //    @OneToMany(mappedBy = "customer")
 //     private  List<Cart> cart;
-//
-//     @OneToMany(mappedBy = "customer")
-//     private  List<Order> order;
-
-    @OneToMany(mappedBy = "customer")
-    private  List<Dress> dress;
 
   public Customer(){}
 

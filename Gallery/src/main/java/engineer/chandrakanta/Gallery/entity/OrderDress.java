@@ -8,20 +8,22 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Order {
+public class OrderDress {
     @Id
     @GeneratedValue
     private Long id;
 
     @JsonIgnore
     @ManyToOne
-    private  Gallery gallery;
-
-
-    @JsonIgnore
-    @ManyToOne
     private  Customer customer;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Customer getCustomer() {
         return customer;
@@ -31,23 +33,17 @@ public class Order {
         this.customer = customer;
     }
 
-    public Gallery getGallery() {
-        return gallery;
+    public Dress getDress() {
+        return dress;
     }
 
-    public void setGallery(Gallery gallery) {
-        this.gallery = gallery;
+    public void setDress(Dress dress) {
+        this.dress = dress;
     }
 
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @JsonIgnore
+    @ManyToOne
+    private  Dress dress;
 
 
 }

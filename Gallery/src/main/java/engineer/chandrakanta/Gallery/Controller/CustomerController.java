@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -31,14 +32,17 @@ public class CustomerController {
 
     @GetMapping("/login")
     public String loginForm() {
+
         return "login";
     }
-
-
-    @GetMapping("/man")
-    public  String manWear(){
-        return  "men";
+    @GetMapping("/main")
+    public  String main(){
+        return  "main";
     }
+
+
+
+
     @GetMapping("/logout")
     public String logoutForm(){
         return "login";
@@ -69,26 +73,17 @@ public class CustomerController {
 
     }
 
-    @PostMapping("/login")
-    public String main(HttpServletRequest request, Model model) {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        Customer customer;
-        if (customerService.existsByUsername(username)) {
-            customer = customerService.findByUsername(username);
-            if (password.equals(customer.getPassword())) {
-                model.addAttribute("message", "Login Successfully");
-            } else {
-                model.addAttribute("message", "Invalid Password");
-                return "login";
-            }
-        } else {
-            model.addAttribute("message", "Please Enter valid Username");
-            return "login";
-        }
+    @GetMapping("/success")
+    public String login(Principal principle) {
+        String username = principle.getName();
 
+       if (username.equals("admin")) {
+           return "redirect:/addContain";
+        }
         return "redirect:/main";
     }
+
+
      @GetMapping("/customerTable")
     public  String customerTable(Model model){
         List<Customer> cust =customerService.showsDetails();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Gallery</title>
@@ -11,7 +11,7 @@
 <body style="background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);">
 <div class="container">
     <div class="row">
-        <h3>List Of Women Wear Products</h3>
+        <h3>List Of  Dress Products</h3>
     </div>
     <table class="table table-striped table-bordered">
         <thead class="table-dark">
@@ -21,23 +21,17 @@
             <th scope="col">Cost</th>
             <th scope="col">Dress Name</th>
             <th scope="col">Image</th>
-            <th scope="col">Action</th>
-            <!--            <th scope="col">Dress Type</th>-->
+            <th scope="col">Dress Type</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="womenWear: ${womenWears}">
-            <td th:text="${womenWear.id}"></td>
-            <td th:text="${womenWear.brand}"></td>
-            <td th:text="${womenWear.cost}"></td>
-            <td th:text="${womenWear.dressName}"></td>
-            <td th:text="${womenWear.snapShot}"></td>
-            <!--            <td th:text= "${menWear.Type}"></td>-->
-            <td>
-                <a class="btn btn-outline-primary" type="submit" >Update</a>
-                <a class="btn btn-outline-primary" type="submit">Delete</a>
-<!--                th:href="@{/womenWear/{id} id=${womenWear.id})}"-->
-            </td>
+        <tr th:each="dress: ${dress}">
+            <td th:text="${dress.id}"></td>
+            <td th:text="${dress.brand}"></td>
+            <td th:text="${dress.cost}"></td>
+            <td th:text="${dress.dressName}"></td>
+            <td th:text="${dress.snapShot}"></td>
+            <td th:text= "${dress.dressType}"></td>
         </tr>
         </tbody>
     </table>

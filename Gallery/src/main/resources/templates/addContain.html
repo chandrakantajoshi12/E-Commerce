@@ -9,6 +9,31 @@
 </head>
 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
 <body  style="background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);">
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-sm bg-light navbar-light">
+                <div class="container-fluid">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/dressTable}">Dress</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/galleryTable}">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/customerTable">Customer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/addGallery">Add Gallery</a>
+                        </li>
+                   </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
 <section class="vh-100 gradient-custom">
     <div class="container py-5 h-100">
         <div class="row justify-content-center align-items-center h-100">
@@ -63,17 +88,7 @@
                                     </div>
 
                                 </div>
-<!--                                <div class="col-md-6 mb-4 pb-2">-->
-
-<!--                                    <div class="form-outline">-->
-<!--                                        <input type="text" id="#" class="form-control form-control-lg" />-->
-<!--                                        <label class="form-label" for="#">Brand</label>-->
-<!--                                    </div>-->
-
-<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="row">-->
-                                <div class="col-12">
+                             <div class="col-12">
                                     <label for="dressType" >Choose option</label>
                                     <select id="dressType" name="dressType" class="select form-control-lg">
                                         <option value="menWear" name="menWear">Mens Wear</option>

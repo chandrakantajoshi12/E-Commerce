@@ -24,10 +24,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected  void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 . authorizeRequests()
-                .antMatchers("/addContain").hasRole("Admin")
-                .antMatchers("/").hasAnyRole("Admin","User")
+                .antMatchers("/addContain","/addGallery","/customerTable").hasRole("ADMIN")
+                .antMatchers("/main","/gallery").hasAnyRole("ADMIN","USER")
                 .antMatchers("/").permitAll()
-                .and().formLogin().loginPage("/login");
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/success");
     }
     @Bean
     public PasswordEncoder getPasswordEncoder(){
