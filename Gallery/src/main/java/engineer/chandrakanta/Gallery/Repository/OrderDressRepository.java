@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface OrderDressRepository extends JpaRepository<OrderDress,Long> {
-    List<OrderDress> findByCustomerUsername(String username);
+     public List<OrderDress> findByCustomerUsername(String username);
 }

@@ -1,10 +1,7 @@
 package engineer.chandrakanta.Gallery.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.List;
 
@@ -27,7 +24,7 @@ public class Gallery {
 //    private List<Cart> cart;
 //
     @OneToMany(mappedBy = "gallery")
-    private  List<Order>  order;
+    private  List<OrderGallery>  order;
 //
 //    public Customer getCustomer() {
 //        return customer;
@@ -36,11 +33,11 @@ public class Gallery {
 //    public void setCustomer(Customer customer) {
 //        this.customer = customer;
 //    }
-      public List<Order> getOrder() {
+      public List<OrderGallery> getOrder() {
        return order;
       }
 
-    public void setOrder(List<Order> order) {
+    public void setOrder(List<OrderGallery> order) {
         this.order = order;
     }
     public Double getCost() {

@@ -114,7 +114,7 @@ span.price {
 <div class="row">
     <div class="col-75">
         <div class="container">
-            <form action="/orderSuccess" method="post">
+            <form action="/orderDress" method="get">
 
                 <div class="row">
                     <div class="col-50">
@@ -168,8 +168,8 @@ span.price {
                     </div>
 
                 </div>
-                <input type="submit" value="Continue to checkout" class="btn" >
-            </form>
+                <a class="btn btn-primary" th:href="@{/orderDress}">Check Out</a>
+             </form>
         </div>
     </div>
 
@@ -177,3 +177,4 @@ span.price {
 
 </body>
 </html>
+<!--<a class="btn btn-primary" th:href="@{/buyDress/{id}  (id=${dress.id})}">Buy</a>-->

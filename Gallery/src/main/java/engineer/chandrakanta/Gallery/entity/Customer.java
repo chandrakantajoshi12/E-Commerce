@@ -17,7 +17,7 @@ public class Customer {
 
 
     @OneToMany(mappedBy = "customer")
-    private  List<Order> order;
+    private  List<OrderGallery> order;
 
     @OneToMany(mappedBy = "customer")
     private  List<Dress> dress;
@@ -39,11 +39,11 @@ public class Customer {
     public Customer(String name, String address, String emailId, String password) {
     }
 
-    public List<Order> getOrder() {
+    public List<OrderGallery> getOrder() {
         return order;
     }
 
-    public void setOrder(List<Order> order) {
+    public void setOrder(List<OrderGallery> order) {
         this.order = order;
     }
 

@@ -8,16 +8,21 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class orderDressService {
+public class OrderDressService {
  @Autowired
  private OrderDressRepository orderDressRepository;
 
- public OrderDress addOrder(OrderDress orderDress){
+     public OrderDress addOrder(OrderDress orderDress){
+
      return  orderDressRepository.save(orderDress);
- }
- public List<OrderDress> orderDress(String username){
+    }
+     public List<OrderDress> orderDress(String username){
+
      return orderDressRepository.findByCustomerUsername(username);
- }
+      }
+    public void  remove(Long id){
+      orderDressRepository.deleteById(id);
+    }
 
 
 }

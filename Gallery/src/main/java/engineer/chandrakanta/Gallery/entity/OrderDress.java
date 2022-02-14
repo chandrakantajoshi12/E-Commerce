@@ -17,6 +17,11 @@ public class OrderDress {
     @ManyToOne
     private  Customer customer;
 
+
+    @JsonIgnore
+    @ManyToOne
+    private  Dress dress;
+
     public Long getId() {
         return id;
     }
@@ -41,9 +46,6 @@ public class OrderDress {
         this.dress = dress;
     }
 
-    @JsonIgnore
-    @ManyToOne
-    private  Dress dress;
 
 
 }
