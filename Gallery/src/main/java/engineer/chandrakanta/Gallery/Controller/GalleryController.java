@@ -37,6 +37,9 @@ public class GalleryController {
     OrderGalleryService orderGalleryService;
     @Autowired
     OrderGalleryRepository orderGalleryRepository;
+
+
+
     @GetMapping("/womenWear")
     public  String womenWear(Model model){
         model.addAttribute("womenWears",dressService.findByDressType("womenWear"));
@@ -64,43 +67,35 @@ public class GalleryController {
         }
         Gallery gallery = galleryService.getById(id);
         Customer customer = customerService.findByUsername(principal.getName());
-        OrderGallery order = new OrderGallery();
-//        order.setGallery(gallery);
-//        order.setCustomer(customer);
-
+        OrderGallery orderGallery = new OrderGallery();
+        orderGallery.setGallery(gallery);
+        orderGallery.setCustomer(customer);
+         orderGalleryService.addOrderGallery(orderGallery);
         return "buyGallery";
     }
-//     @GetMapping("/orderGallery")
-//     public  String buyGallery(){
-//        return  "orderGallery";
-//     }
 
     @GetMapping("/orderGallery")
-    public  String buyGallery(){
-//        String name = request.getParameter("name");
-//        String emailId = request.getParameter("emailId");
-//        String address= request.getParameter("address");
-//        String city = request.getParameter("city");
-//        String state = request.getParameter("state");
-//        String  zip = request.getParameter("zip");
-//        String cardName = request.getParameter("cardName");
-//        String month = request.getParameter("month");
-//        String year = request .getParameter("year");
-//        Integer cvv = Integer.parseInt(request.getParameter("cvv"));
-//
-//          Order order = new Order();
-
-         return "orderGallery";
+    public  String buyGallery(Model model,Principal principal){
+        return "orderGallery";
     }
     @GetMapping("/myOrderGallery")
-    public  String myOrderDress(Principal principal,Model model){
+    public  String myOrderGallery(Principal principal, Model model){
         if(principal!=null){
             String username = principal.getName();
             model.addAttribute("username",username);
         }
-//        Customer customer = customerService.getByUsername(principal.getName());
+        Customer customer = customerService.findByUsername(principal.getName());
         model.addAttribute("orderGallery",orderGalleryService.orderGallery(principal.getName()));
-//        model.addAttribute("orders",orderDressService.addOrder());
         return "myOrderGallery";
+    }
+
+    @GetMapping("/orderGallery/{id}")
+    public  String cancelOrder(@PathVariable Long id, Model model, Principal principal){
+        if(principal!=null){
+            String username = principal.getName();
+            model.addAttribute("username",username);
+        }
+        orderGalleryService.remove(id);
+        return "redirect:/myOrderGallery";
     }
 }

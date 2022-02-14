@@ -44,8 +44,24 @@ public class DressController {
       OrderDress orderDress = new OrderDress();
       orderDress.setDress(dress);
       orderDress .setCustomer(customer);
+      orderDressService.addOrder(orderDress);
         return "buyDress";
     }
+
+//    @GetMapping("/buyGallery/{id}")
+//    public String buyNow(@PathVariable Long id, Principal principal, Model model){
+//        if(principal!=null){
+//            String username = principal.getName();
+//            model.addAttribute("username",username);
+//        }
+//        Gallery gallery = galleryService.getById(id);
+//        Customer customer = customerService.findByUsername(principal.getName());
+//        OrderGallery orderGallery = new OrderGallery();
+//        orderGallery.setGallery(gallery);
+//        orderGallery.setCustomer(customer);
+//        orderGalleryService.addOrderGallery(orderGallery);
+//        return "buyGallery";
+//    }
 
     @GetMapping("/dressTable")
     public  String customerTable(Model model){
@@ -53,22 +69,28 @@ public class DressController {
         model.addAttribute("dress",dress);
         return  "dressTable";
     }
+
+
     @GetMapping("/orderDress")
-    public  String buyDress(){
+    public  String OrderDress(Principal principal,Model model){
+
         return "orderDress";
     }
 
-    @GetMapping("/myOrderDress")
-    public  String myOrderDress(Principal principal,Model model){
-        if(principal!=null){
-            String username = principal.getName();
-            model.addAttribute("username",username);
-        }
-//        Customer customer = customerService.getByUsername(principal.getName());
-        model.addAttribute("orderDress",orderDressService.orderDress(principal.getName()));
-//        model.addAttribute("orders",orderDressService.addOrder());
-        return "myOrderDress";
+     @GetMapping("/myOrderDress")
+     public  String myOrderDress(Principal principal, Model model){
+    if(principal!=null){
+        String username = principal.getName();
+        model.addAttribute("username",username);
     }
+    Customer customer = customerService.findByUsername(principal.getName());
+    model.addAttribute("orderDress",orderDressService.orderDress(principal.getName()));
+    return "myOrderDress";
+    }
+
+
+
+
 
     @GetMapping("/orderDress/{id}")
     public  String cancelOrder(@PathVariable Long id, Model model, Principal principal){

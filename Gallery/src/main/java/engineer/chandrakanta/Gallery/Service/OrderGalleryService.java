@@ -17,4 +17,14 @@ public class OrderGalleryService {
 
         return orderGalleryRepository.findByCustomerUsername(username);
     }
-     }
+
+
+
+    public OrderGallery addOrderGallery(OrderGallery orderGallery) {
+        return  orderGalleryRepository.save(orderGallery);
+    }
+
+    public void remove(Long id) {
+         orderGalleryRepository.deleteById(id);
+    }
+}

@@ -11,15 +11,16 @@
 <body  style="background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);">
 <div class="product" style="display:flex;flex-wrap:wrap; overflow:hidden;">
     <div class="row" style="margin:10px;">
-        <div class="col-md-3 mr-4" style="margin:100px;"  th:each="order: ${order} ">
+        <div class="col-md-3 mr-4" style="margin:100px;"  th:each="orderGallery: ${orderGallery} ">
             <div class="cards"  style="margin-top:10px;width:300px;height:500px;background:white ;">
-                <img th:src="@{${order.dress.snapShot}}" style="width:300px;height:300px ;" alt="">
+                <img th:src="@{${orderGallery.gallery.photo}}" style="width:300px;height:300px ;" alt="">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${order.dress.dressName}">Women Wear</h5>
-                    <div class="brand">Brand<b th:text="${order.dress.brand}"></b></div>
-                    <div clas="cost">₹<b th:text="${order.dress.cost}"></b></div>
+                    <h5 class="card-title" th:text="${orderGallery.gallery.name}">Name</h5>
+                    <div class="brand">Brand<b th:text="${orderGallery.gallery.brand}"></b></div>
+                    <div clas="cost">₹<b th:text="${orderGallery.gallery.cost}"></b></div>
+                    <div clas="id"><b th:text="${orderGallery.gallery.id}"></b></div>
 
-                    <a class="btn btn-primary" th:href="@{/orderGallery/{id}  (id=${order.id})}">Cancel Order</a>
+                    <a class="btn btn-primary" th:href="@{/orderGallery/{id} (id= ${orderGallery.id})}">Cancel Order</a>
                 </div>
             </div>
         </div>
