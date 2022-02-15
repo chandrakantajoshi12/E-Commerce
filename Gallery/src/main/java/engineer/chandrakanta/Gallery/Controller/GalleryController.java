@@ -98,4 +98,14 @@ public class GalleryController {
         orderGalleryService.remove(id);
         return "redirect:/myOrderGallery";
     }
+
+    @GetMapping("/{id}/delete")
+    public  String delete(@PathVariable Long id){
+        if(orderGalleryService.existByGalleryId(id)){
+            orderGalleryService.removeByGalleryId(id);
+        }
+        galleryService.remove(id);
+        return "redirect:/galleryTable";
+    }
+
 }

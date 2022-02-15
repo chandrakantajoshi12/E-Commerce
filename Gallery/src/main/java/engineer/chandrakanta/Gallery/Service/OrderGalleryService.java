@@ -27,4 +27,12 @@ public class OrderGalleryService {
     public void remove(Long id) {
          orderGalleryRepository.deleteById(id);
     }
+
+    public Boolean existByGalleryId(Long id) {
+        return  orderGalleryRepository.existsByGalleryId(id);
+    }
+
+    public void removeByGalleryId(Long id) {
+        orderGalleryRepository.deleteByGalleryId(id);
+    }
 }

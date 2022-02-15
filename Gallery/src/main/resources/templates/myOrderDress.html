@@ -8,7 +8,37 @@
 </head>
 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;"
      alt="logo">
-<body  style="background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);">
+<body  style="background-image:url('/image/paint.jpg'); background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);">
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-sm bg-light navbar-light">
+                <div class="container-fluid">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" th:text="${userName}"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/menWear}">Men</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/womenWear}">Women</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/myOrderDress">My Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</nav>
 <div class="product" style="display:flex;flex-wrap:wrap; overflow:hidden;">
     <div class="row" style="margin:10px;">
         <div class="col-md-3 mr-4" style="margin:100px;"  th:each="orderDress: ${orderDress} ">

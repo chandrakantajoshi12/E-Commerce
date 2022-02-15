@@ -21,6 +21,7 @@
             <th scope="col">Cost</th>
             <th scope="col">Dress Name</th>
             <th scope="col">Image</th>
+<!--            <th scope="col">Action</th>-->
             <!--            <th scope="col">Dress Type</th>-->
         </tr>
         </thead>
@@ -31,6 +32,7 @@
             <td th:text="${gallery.name}"></td>
             <td th:text="${gallery.cost}"></td>
             <td th:text="${gallery.photo}"></td>
+<!--            <td class="btn btn-outline-danger" th:href="@{/{id}/delete (id=${gallery.id})}">Delete</tr>-->
         </tr>
         </tbody>
     </table>

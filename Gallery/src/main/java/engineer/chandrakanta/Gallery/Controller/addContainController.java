@@ -63,7 +63,7 @@ public class addContainController {
     }
 
 
-    @PostMapping("/addGallery")
+    @PostMapping("/addGallery")//gallery/add
     public String addGallery(HttpServletRequest request, Model model) {
         Long id = Long.parseLong(request.getParameter("id"));
         String brand = request.getParameter("brand");

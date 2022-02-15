@@ -22,4 +22,8 @@ public class GalleryService {
     public Gallery getById(Long id) {
         return  galleryRepository.getById(id);
     }
+
+    public void remove(Long id) {
+        galleryRepository.deleteById(id);
+    }
 }

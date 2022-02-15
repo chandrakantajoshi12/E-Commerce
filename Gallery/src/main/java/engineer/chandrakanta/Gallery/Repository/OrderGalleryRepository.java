@@ -8,4 +8,8 @@ import java.util.List;
 public interface OrderGalleryRepository extends JpaRepository<OrderGallery,Long> {
 
      public List<OrderGallery> findByCustomerUsername(String username);
+
+    public  Boolean existsByGalleryId(Long id);
+
+      public void deleteByGalleryId(Long id);
 }

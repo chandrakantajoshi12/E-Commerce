@@ -27,6 +27,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/addGallery">Add Gallery</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
                    </ul>
                 </div>
             </nav>
@@ -47,7 +50,7 @@
                                 <div class="col-md-6 mb-4">
 
                                     <div class="form-outline">
-                                        <input type="text" id="id" name="id" placeholder="Enter ID" class="form-control form-control-lg" />
+                                        <input type="text" id="id" name="id" placeholder="Enter ID" class="form-control form-control-lg" required/>
                                         <label class="form-label" for="id">ID</label>
                                     </div>
 
@@ -55,7 +58,7 @@
                                 <div class="col-md-6 mb-4 pb-2">
 
                                     <div class="form-outline">
-                                        <input type="text" id="brand" name="brand" placeholder="Enter Brand" class="form-control form-control-lg" />
+                                        <input type="text" id="brand" name="brand" placeholder="Enter Brand" class="form-control form-control-lg" required/>
                                         <label class="form-label" for="brand">Brand</label>
                                     </div>
 
@@ -65,7 +68,7 @@
                                 <div class="col-md-6 mb-4 pb-2">
 
                                     <div class="form-outline">
-                                        <input type="text" id="dressName"  name="dressName" placeholder="Enter Dress Name" class="form-control form-control-lg" />
+                                        <input type="text" id="dressName"  name="dressName" placeholder="Enter Dress Name" class="form-control form-control-lg" required/>
                                         <label class="form-label" for="dressName">DressName</label>
                                     </div>
 
@@ -73,7 +76,7 @@
                                 <div class="col-md-6 mb-4 pb-2">
 
                                     <div class="form-outline">
-                                        <input type="tel" id="cost" name="cost" placeholder="Enter Cost" class="form-control form-control-lg" />
+                                        <input type="tel" id="cost" name="cost" placeholder="Enter Cost" class="form-control form-control-lg" required/>
                                         <label class="form-label" for="cost">cost</label>
                                     </div>
 
@@ -83,14 +86,14 @@
                                 <div class="col-md-6 mb-4">
 
                                     <div class="form-outline">
-                                        <input type="text" id="snapShot" name="snapShot" placeholder="Enter Image" class="form-control form-control-lg" />
+                                        <input type="text" id="snapShot" name="snapShot" placeholder="Enter Image" class="form-control form-control-lg" required/>
                                         <label class="form-label" for="snapShot">Image</label>
                                     </div>
 
                                 </div>
                              <div class="col-12">
                                     <label for="dressType" >Choose option</label>
-                                    <select id="dressType" name="dressType" class="select form-control-lg">
+                                    <select id="dressType" name="dressType" class="select form-control-lg" >
                                         <option value="menWear" name="menWear">Mens Wear</option>
                                         <option value="womenWear" name="womenWear">Women Wear</option>
                                     </select>

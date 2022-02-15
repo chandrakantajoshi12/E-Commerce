@@ -62,9 +62,6 @@ public class Customer {
     public void setRole(String role) {
         this.role = role;
     }
-//
-//    @OneToMany(mappedBy = "customer")
-//     private  List<Cart> cart;
 
   public Customer(){}
 

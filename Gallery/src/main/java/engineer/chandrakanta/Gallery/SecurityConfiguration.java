@@ -25,7 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 . authorizeRequests()
                 .antMatchers("/addContain","/addGallery","/customerTable").hasRole("ADMIN")
-                .antMatchers("/main","/gallery").hasAnyRole("ADMIN","USER")
+                .antMatchers("/main","/gallery","/womenWear","/menWear").hasAnyRole("ADMIN","USER")
                 .antMatchers("/").permitAll()
                 .and().formLogin().loginPage("/login").defaultSuccessUrl("/success");
     }
