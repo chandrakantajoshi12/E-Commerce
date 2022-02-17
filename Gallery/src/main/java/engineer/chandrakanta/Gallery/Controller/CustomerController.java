@@ -108,7 +108,17 @@ public class CustomerController {
       customerService.updateCustomer(customer);
       return "updateCustomer";
      }
-
+     //view Profile
+    @GetMapping("/profile")
+    public  String profile(Principal principal, Model model){
+        if(principal!=null){
+            String username = principal.getName();
+            Customer customer = customerService.findByUsername(username);
+            model.addAttribute("username",customer.getName());
+        }
+        model.addAttribute("customer",customerService.findByUsername(principal.getName()));
+        return  "profile";
+    }
 
 }
 
