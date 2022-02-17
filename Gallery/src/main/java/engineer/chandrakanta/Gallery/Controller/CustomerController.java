@@ -94,7 +94,7 @@ public class CustomerController {
 
      @GetMapping("/updateCustomer")
      public String updateCustomer(Model model){
-        model.addAttribute("message","Profile Updated");
+//        model.addAttribute("message","Profile Updated");
         return "updateCustomer";
      }
 
@@ -106,6 +106,7 @@ public class CustomerController {
       String password = request.getParameter("password");
       Customer customer = new Customer  (name,address,emailId,password);
       customerService.updateCustomer(customer);
+         model.addAttribute("message","Profile Updated");
       return "updateCustomer";
      }
      //view Profile
